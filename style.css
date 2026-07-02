@@ -1,0 +1,544 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Top Bar Styling --- */
+.top-bar {
+    background-color: #fcfcfcfc;
+    border-bottom: 1px solid #eee;
+    padding: 10px 10%;
+    display: flex; /* Flexbox Shuru */
+    justify-content: space-between; /* Ek hissa left par, ek right par */
+    align-items: center;
+    font-size: 14px;
+}
+
+.contact-info span {
+    margin-right: 20px;
+    color: #7a7a7a;
+}
+
+.contact-info i {
+    color: #f35525; /* Orange Icon Color */
+    margin-right: 5px;
+}
+
+.social-icons a {
+    color: #cdcdcd;
+    margin-left: 15px;
+    text-decoration: none;
+    font-size: 16px;
+}
+.social-icons a:hover { color: #f35525; }
+
+/* --- Navbar Styling --- */
+.navbar {
+    padding: 20px 10%;
+    display: flex; /* Flexbox for Logo and Links */
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1e1e1e;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Flexbox for Menu Items */
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1e1e1e;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #f35525;
+}
+
+/* Schedule Button */
+.btn-schedule {
+    background-color: #1e1e1e;
+    color: #fff !important;
+    padding: 12px 25px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-schedule i {
+    background-color: #f35525;
+    padding: 7px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+/* --- Hero Section Styling --- */
+.hero {
+    /* Linear-gradient se image thodi dark hogi taaki white text saaf dikhe */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                     url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1600'); 
+    background-size: cover;
+    background-position: center;
+    height: 85vh; /* Screen ki 85% height cover karega */
+    display: flex;
+    align-items: center; /* Text ko vertically center karne ke liye */
+    padding: 0 10%; /* Left aur right se space dene ke liye */
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+/* --- Naya Slideshow CSS --- */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Screen ki height */
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    opacity: 0; /* Shuru me saari slides chupi hongi */
+    transition: opacity 1s ease-in-out; /* Smooth badalne ka effect */
+    z-index: 1;
+}
+
+/* Jo slide active hogi sirf wohi dikhegi */
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content .location-badge {
+    background-color: #fff;
+    color: #1e1e1e;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.hero-content .location-badge em {
+    color: #f35525;
+    font-style: normal;
+}
+
+.hero-content h2 {
+    color: #fff;
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+/* Dots Styling */
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background-color: #f35525; /* Orange dot for active slide */
+    width: 30px; /* Thoda lamba dot styling ke liye */
+    border-radius: 10px;
+}
+
+/* --- Featured Section Styling --- */
+.featured-section {
+    padding: 80px 10%;
+    background-color: #fff;
+}
+
+.featured-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr; /* 3 Columns layout */
+    gap: 40px;
+    align-items: start;
+}
+
+/* Left Image Box */
+.featured-image {
+    position: relative;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Image ke niche chota orange circular badge */
+.orange-icon-badge {
+    position: absolute;
+    bottom: -25px;
+    left: -25px;
+    background-color: #f35525;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(243, 85, 37, 0.4);
+}
+
+/* Center Content */
+.sub-title {
+    color: #f35525;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: block;
+}
+
+.featured-info h3 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #1e1e1e;
+    margin: 15px 0 25px 0;
+    line-height: 1.3;
+}
+
+/* Accordion Box */
+.accordion-box {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.accordion-header {
+    padding: 15px;
+    font-weight: 600;
+    color: #1e1e1e;
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-header.active {
+    color: #f35525;
+    border-bottom: none;
+}
+
+.accordion-content {
+    padding: 0 15px 15px 15px;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Right Features List Card */
+.featured-list-card {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.05);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.feature-item:last-child {
+    border-bottom: none;
+}
+
+.feature-icon {
+    font-size: 35px;
+    color: #f35525;
+}
+
+.feature-item h4 {
+    font-size: 18px;
+    color: #1e1e1e;
+    font-weight: 700;
+}
+
+.feature-item p {
+    font-size: 13px;
+    color: #888;
+    margin-top: 3px;
+}
+
+/* --- Video Section Styling --- */
+.video-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                     url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600'); /* Castle background */
+    background-size: cover;
+    background-position: center;
+    padding: 120px 10% 280px 10%; /* Niche se padding zyada hai overlap ke liye */
+    text-align: center;
+    position: relative;
+}
+
+.video-heading h3 {
+    color: #fff;
+    font-size: 38px;
+    font-weight: 800;
+    margin-top: 15px;
+    line-height: 1.3;
+}
+
+/* Video Player Box Layout */
+.video-container {
+    max-width: 850px;
+    height: 480px;
+    margin: 0 auto;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0px 15px 35px rgba(0,0,0,0.4);
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: -160px; /* Is se video box niche wale section par overlap karega */
+    z-index: 5;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- Facts & Cards Section Styling --- */
+.facts-section {
+    background-color: #fff;
+    padding: 260px 10% 100px 10%; /* Video player ko space dene ke liye top padding */
+}
+
+.facts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns side-by-side */
+    gap: 30px;
+}
+
+/* Orange Cards Setup */
+.fact-card {
+    background-color: #fef0ec; /* Light soft orange background */
+    padding: 30px 40px;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.4s ease; /* Hover par smooth transition */
+    cursor: pointer;
+}
+
+/* Card Numbers (34, 12, 24) */
+.card-number {
+    color: #f35525; /* Bright Orange color */
+    font-size: 46px;
+    font-weight: 900;
+}
+
+.card-text h4 {
+    font-size: 18px;
+    color: #1e1e1e;
+    font-weight: 700;
+}
+
+.card-text p {
+    font-size: 14px;
+    color: #f35525;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* Chota circular dot background decoration */
+.fact-card .dot-badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: #f35525;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Hover Effect: Jab mouse upar aaye toh card pop-up ho */
+.fact-card:hover {
+    background-color: #f35525;
+    transform: translateY(-10px); /* Card thoda upar uthega */
+    box-shadow: 0px 15px 30px rgba(243, 85, 37, 0.2);
+}
+
+.fact-card:hover .card-number,
+.fact-card:hover .card-text h4,
+.fact-card:hover .card-text p {
+    color: #fff; /* Hover karne par text khud white ho jayega */
+}
+
+/* --- Properties Section --- */
+.properties-section {
+    padding: 80px 10%;
+    background-color: #f9f9f9;
+}
+
+.properties-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.properties-heading h3 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e1e1e;
+    margin-top: 15px;
+}
+
+/* 3 Cards Standard Grid Layout */
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Teeno box amne samne pory ayenge */
+    gap: 30px;
+}
+
+.property-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 25px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+/* Image Container Frame */
+.card-image-window {
+    width: 100%;
+    height: 220px;
+    position: relative; /* Andar wali images ko overlap karne ke liye */
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* Saari images default me chhupi rahengi */
+.card-image-window .slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out; /* Smooth fade effect */
+}
+
+/* Jo image active hogi sirf wo nazar aayegi */
+.card-image-window .slide-img.active {
+    opacity: 1;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 15px 0;
+}
+
+.type-badge {
+    background-color: #fef0ec;
+    color: #f35525;
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.price-tag {
+    color: #f35525;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.property-card h4 {
+    font-size: 16px;
+    color: #1e1e1e;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+.specs-grid strong {
+    color: #1e1e1e;
+}
+
+.visit-btn {
+    background-color: #1e1e1e;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.visit-btn:hover {
+    background-color: #f35525;
+}
