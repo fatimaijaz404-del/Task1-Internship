@@ -757,50 +757,59 @@ html, body {
    ========================================================================== */
 
 /* ==========================================================================
-   📱 ONLY MOBILE VIEW (max-width: 768px) - VERTICAL CENTERING JADU
+   📱 ONLY MOBILE VIEW (max-width: 768px) - VIDEO PUSH DOWN FIX
    ========================================================================== */
 
 @media (max-width: 768px) {
     
-    /* 1. Main Video Section: Text and Video spacing control */
+    /* 1. Pure section ke spacing layout ko streamline karein */
+    .video-section, 
     .video-view-section {
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important; /* Stack text first */
+        justify-content: flex-start !important;
         align-items: center !important;
         position: relative !important;
-        /* Video ko vertically safe background area me lane ke liye bottom barhaya */
-        padding: 50px 0 250px 0 !important; 
-        min-height: auto !important;
+        /* Video ko niche jagah dene ke liye bottom padding barha di */
+        padding: 60px 0 280px 0 !important; 
         width: 100% !important;
     }
 
-    /* 2. Headline Text spacing fix: Keep it close to top edge */
-    .video-view-section .section-headline-block {
-        text-align: center !important;
-        margin: 0 auto 30px auto !important; /* Spacing between Text & coming video */
-        float: none !important;
+    /* 2. Headline Text Container: Isko space dein taaki yeh video ke peeche na chhupe */
+    .video-heading,
+    .video-section .section-heading,
+    .video-view-section h2,
+    .video-view-section .header-text {
+        position: relative !important;
+        z-index: 20 !important;
+        margin-bottom: 40px !important; /* Text ke neeche extra space taaki video se door rahe */
+        display: block !important;
     }
 
-    /* 3. The Video Frame Wrapper: Lock to exact Vertical Center spot in background */
-    .video-container {
+    /* 3. Video Container: Absolute spacing ko push down kiya green box me lane ke liye */
+    .video-container, 
+    .video-box,
+    .video-section .container:has(iframe) {
         position: absolute !important;
-        bottom: 20% !important;   /* Dynamic vertical offset based on green box */
+        /* 🟢 CRITICAL FIX: top se gap barha diya aur bottom shift down kiya */
+        top: 180px !important; 
         left: 50% !important;
-        transform: translateX(-50%) !important; /* Horizontal locked center */
-        width: 85% !important;
-        max-width: 380px !important;
+        transform: translateX(-50%) !important; /* Perfect horizontal center lock */
+        width: 88% !important;
+        max-width: 400px !important;
         height: auto !important;
         display: block !important;
-        z-index: 10 !important;
-        border-radius: 15px;
+        z-index: 15 !important;
     }
 
-    /* Video element exact shape control */
-    .video-container iframe {
+    /* Actual video frame sizing */
+    .video-container iframe,
+    .video-box iframe {
         width: 100% !important;
-        height: 240px !important; /* Mobile clean playing height frame */
-        border-radius: 15px !important;
-        margin: 0 !important;
+        height: 220px !important; /* Fluid visual frame height */
+        border-radius: 20px !important;
+        display: block !important;
+        margin: 0 auto !important;
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15) !important;
     }
 }
