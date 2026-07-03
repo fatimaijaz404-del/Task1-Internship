@@ -113,6 +113,7 @@
     overflow: hidden;
 }
 
+/* --- Sirf is hisse ko update karein --- */
 .slide {
     position: absolute;
     top: 0;
@@ -124,14 +125,17 @@
     display: flex;
     align-items: center;
     padding: 0 10%;
-    opacity: 0; /* Shuru me saari slides chupi hongi */
-    transition: opacity 1s ease-in-out; /* Smooth badalne ka effect */
+    
+    /* 🔴 Purani opacity: 0 ko hata diya hai */
+    /* 🟢 Ab slides default mein right side par wait karengi, JS inhein move karegi */
+    transform: translateX(100%); 
+    transition: transform 0.8s ease-in-out; /* Smooth slide effect from right side */
     z-index: 1;
 }
 
-/* Jo slide active hogi sirf wohi dikhegi */
+/* 🟢 Active slide hamesha screen par zero position (samne) rahegi */
 .slide.active {
-    opacity: 1;
+    transform: translateX(0);
     z-index: 2;
 }
 
@@ -164,31 +168,31 @@
 }
 
 /* Dots Styling */
+/* Hero Banner Slider Indicators/Dots */
 .slider-dots {
     position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 30px;         /* Text ke niche spacing */
+    left: 10%;            /* Jahan se aapka text alignment shuru ho raha hai */
     display: flex;
     gap: 10px;
-    z-index: 10;
+    z-index: 15;
+    transform: none;      /* Agar pehle translate(50%) tha toh use khatam karne k liye */
 }
 
-.dot {
+.slider-dots span {
     width: 12px;
     height: 12px;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
-.dot.active {
-    background-color: #f35525; /* Orange dot for active slide */
-    width: 30px; /* Thoda lamba dot styling ke liye */
+.slider-dots span.active {
+    background-color: #f35525; /* Active dot ka orange rang */
+    width: 30px;               /* Pilla/Orange dot thoda lamba horizontal style me */
     border-radius: 10px;
 }
-
 /* --- Featured Section Styling --- */
 .featured-section {
     padding: 80px 10%;
@@ -275,40 +279,93 @@
 }
 
 /* Right Features List Card */
-.featured-list-card {
-    background-color: #fff;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.05);
-}
+/* ==========================================================================
+   🎯 FEATURED SECTION - RIGHT SIDE LAYOUT FIXED
+   ========================================================================== */
 
-.feature-item {
+/* 1. Pure Container ka structural parent target karein */
+.featured-section .row,
+.featured-section .container-fluid {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+/* 2. Right side block ko left image ke barabar proper width dein */
+.featured-section .info-list, 
+.featured-section ul {
+    list-style: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    max-width: 380px; /* Proper full dynamic structural width */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Har card block ke beech dynamic spatial gap */
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    padding: 30px !important; /* Outer container structural card padding */
+}
+
+/* 3. Har individual row item ko bilkul amne-samne row me align karein */
+.featured-section .info-list li,
+.featured-section .icon-box {
+    display: flex !important;
+    flex-direction: row !important; /* Icons aur text humesha side-by-side rahen ge */
+    align-items: center !important;
+    gap: 20px !important;
+    padding-bottom: 20px;
     border-bottom: 1px solid #eee;
+    width: 100%;
 }
 
-.feature-item:last-child {
+/* Aakhri element ke niche se line hatane k liye */
+.featured-section .info-list li:last-child,
+.featured-section .icon-box:last-child {
     border-bottom: none;
+    padding-bottom: 0;
 }
 
-.feature-icon {
-    font-size: 35px;
-    color: #f35525;
+/* 4. Icons ka size aur exact brown balance */
+.featured-section .info-list img, 
+.featured-section .icon-box img,
+.featured-section li img {
+    width: 48px !important; /* Perfect standard structure size */
+    height: 48px !important;
+    min-width: 48px !important; /* Flexbox block shrink protection */
+    object-fit: contain;
+    /* Clean Solid Brown color filter adjustment */
+    filter: invert(28%) sepia(85%) saturate(385%) hue-rotate(359deg) brightness(88%) contrast(90%) !important;
 }
 
-.feature-item h4 {
-    font-size: 18px;
-    color: #1e1e1e;
-    font-weight: 700;
+/* Agar pure fontAwesome element tag template me hain (<i>) */
+.featured-section .info-list i, 
+.featured-section .icon-box i,
+.featured-section li i {
+    font-size: 36px !important;
+    min-width: 48px !important;
+    color: #7A431D !important;
+    text-align: center;
 }
 
-.feature-item p {
-    font-size: 13px;
-    color: #888;
-    margin-top: 3px;
+/* 5. Text details adjustment (Heading & Content placement side-by-side) */
+.featured-section .info-list h4,
+.featured-section .info-list li strong {
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    color: #1e1e1e !important;
+    margin: 0 0 4px 0 !important;
+    display: block !important;
+}
+
+.featured-section .info-list span,
+.featured-section .info-list li p {
+    font-size: 14px !important;
+    color: #aaa !important;
+    margin: 0 !important;
+    display: block !important;
 }
 
 /* --- Video Section Styling --- */

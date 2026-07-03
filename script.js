@@ -1,26 +1,48 @@
-// 1. Sab se pehle saari slides aur dots ko HTML se select karenge
+// ==========================================================================
+// 🚀 HERO BANNER SLIDER LOGIC (Right Side Sliding)
+// ==========================================================================
 const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
+const dots = document.querySelectorAll('.slider-dots span'); // Agar class .dot hai toh '.dot' kar dein
 let currentSlide = 0;
 
-function changeSlide() {
-    // Agar page par slides nahi hain toh code ruk jaye
+function changeSlide(index) {
     if (slides.length === 0) return;
 
-    // 2. Jo slide abhi chal rahi hai, us se 'active' class hata do (takay wo chup jaye)
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            // Jo active slide hai, use screen ke center (0) par lao
+            slide.classList.add('active');
+            slide.style.transform = 'translateX(0)';
+        } else if (i < index) {
+            // Jo slides guzar chuki hain, unhe left side (-100%) par bhej do
+            slide.classList.remove('active');
+            slide.style.transform = 'translateX(-100%)';
+        } else {
+            // Jo aane wali slides hain, unhe right side (100%) par rakho
+            slide.classList.remove('active');
+            slide.style.transform = 'translateX(100%)';
+        }
+    });
 
-    // 3. Agli slide par jao (agar teesri slide khatam ho jaye toh wapas 0 yani pehli par jao)
-    currentSlide = (currentSlide + 1) % slides.length;
-
-    // 4. Nayi slide aur dot ko 'active' class do (takay wo smoothly screen par aa jaye)
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+    // Dots active state update
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
 }
 
-// Har 3000 milliseconds (yaani 3 seconds) baad automatic slide change hogi
-setInterval(changeSlide, 3000);
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    changeSlide(currentSlide);
+}
+
+// Har 4 seconds baad slide auto-change hogi right side se
+setInterval(nextSlide, 4000);
+
+// Pehli dafa run karne ke liye
+changeSlide(currentSlide);
+
+// ==========================================================================
+// ⚠️ NOTE: Iske NEECHE aapka purana propertyCards wala code wese hi rahega!
+// ==========================================================================
 
 // --- Individual Cards Inner Image Slideshows ---
 const propertyCards = document.querySelectorAll('.property-card');
