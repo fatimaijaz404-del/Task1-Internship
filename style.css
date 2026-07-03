@@ -693,3 +693,68 @@ footer {
         padding-top: 40px !important;
     }
 }
+/* ==========================================================================
+   📱 PERFECT MOBILE VIEW ACCORDING TO SCREENSHOT OVERLAYS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. Featured Section Layout Adjustment */
+    .featured-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
+    }
+    .featured-image, .featured-info {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .featured-list-card {
+        width: 100% !important;
+        max-width: 100% !important; /* Mobile par width full ho taaki content kray na */
+        box-sizing: border-box !important;
+        padding: 20px !important;
+    }
+    .feature-item {
+        gap: 15px !important;
+    }
+
+    /* 2. Facts Counter Section Overlap Fix (Video block overlap control) */
+    .facts-section {
+        margin-top: 0px !important; /* Negative effects zero out */
+        padding: 60px 0 !important; /* Normal fluid distribution */
+        display: block !important;
+        width: 100% !important;
+    }
+    .facts-container {
+        flex-direction: column !important; /* Stack vertically single-row on mobile */
+        gap: 30px !important; 
+        padding: 0 20px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    .fact-box {
+        width: 100% !important;
+        max-width: 100% !important; /* Full visible card container width */
+        margin: 0 auto !important;
+        padding: 25px 30px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Properties Cards Grid Management for Mobile */
+    .properties-section {
+        padding: 50px 15px !important;
+    }
+    .properties-slide-set {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important; /* Grid breaks to clean column roll */
+        gap: 30px !important;
+    }
+    .property-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
