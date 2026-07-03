@@ -756,3 +756,43 @@ html, body {
    🎯 VIDEO SECTION - PERFECT CENTER ALIGNMENT FOR MOBILE & DESKTOP
    ========================================================================== */
 
+/* ==========================================================================
+   🎯 FINAL OVERRIDE: FORCE VIDEO TO CENTER ON MOBILE (768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Main outer parent section layout alignment */
+    .video-section, 
+    .video-view-section {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important; /* Horizontally clear center center lock */
+        align-items: center !important;
+        margin: 0 auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* 2. Video container block positioning override */
+    .video-container, 
+    .video-box,
+    .video-section .container {
+        position: relative !important;
+        width: 90% !important;        /* Screen edges balanced padding spacing */
+        max-width: 480px !important;  /* Fluid layout boundary safe container limit */
+        margin: 20px auto !important; /* Left & Right auto forces perfect alignment */
+        left: 0 !important;           /* Purani left/right settings reset */
+        right: 0 !important;
+        bottom: 0 !important;         /* Kisi bhi negative bottom offset pull ko zero kiya */
+        transform: none !important;
+        float: none !important;
+    }
+
+    /* 3. Actual Iframe element visual size control */
+    .video-container iframe, 
+    .video-box iframe {
+        width: 100% !important;
+        height: 250px !important;     /* Mobile clean standard video playback frame height */
+        display: block !important;
+        margin: 0 auto !important;
+    }
+}
