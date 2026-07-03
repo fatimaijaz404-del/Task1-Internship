@@ -312,120 +312,101 @@
 }
 
 /* --- Video Section Styling --- */
+/* --- 6. Video Section (Banner Height & Video Width Fixed) --- */
 .video-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                     url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1600'); /* Castle background */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200');
     background-size: cover;
     background-position: center;
-    padding: 120px 10% 280px 10%; /* Niche se padding zyada hai overlap ke liye */
+    height: 450px; /* Banner more height than text */
     text-align: center;
+    padding-top: 70px;
     position: relative;
 }
 
 .video-heading h3 {
     color: #fff;
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 800;
     margin-top: 15px;
     line-height: 1.3;
 }
 
-/* Video Player Box Layout */
+/* More Width Given to Video Container */
 .video-container {
-    max-width: 850px;
-    height: 480px;
-    margin: 0 auto;
+    width: 75%; /* More width than before */
+    max-width: 900px;
+    height: 450px;
+    background-color: #000;
     border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0px 15px 35px rgba(0,0,0,0.4);
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.3);
     position: absolute;
-    left: 10%;
-    right: 10%;
-    bottom: -160px; /* Is se video box niche wale section par overlap karega */
-    z-index: 5;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    z-index: 10;
 }
 
-.video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* --- Facts & Cards Section Styling --- */
+/* --- 7. Facts Section (Larger Orange Boxes) --- */
 .facts-section {
     background-color: #fff;
-    padding: 260px 10% 100px 10%; /* Video player ko space dene ke liye top padding */
+    padding: 300px 10% 80px 10%; /* Extra top padding for floating video overlap */
 }
 
 .facts-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Columns side-by-side */
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-/* Orange Cards Setup */
-.fact-card {
-    background-color: #fef0ec; /* Light soft orange background */
-    padding: 30px 40px;
+/* Bigger Orange Boxes */
+.fact-box {
+    background-color: #fef0ec;
+    padding: 35px 40px; /* Size increased little big */
     border-radius: 20px;
     position: relative;
     display: flex;
     align-items: center;
     gap: 25px;
-    transition: all 0.4s ease; /* Hover par smooth transition */
-    cursor: pointer;
 }
 
-/* Card Numbers (34, 12, 24) */
-.card-number {
-    color: #f35525; /* Bright Orange color */
-    font-size: 46px;
-    font-weight: 900;
+.fact-box h2 {
+    color: #f35525;
+    font-size: 42px; /* Emphasized numbers */
+    font-weight: 800;
 }
 
-.card-text h4 {
-    font-size: 18px;
+.fact-box p {
     color: #1e1e1e;
     font-weight: 700;
+    font-size: 16px;
+    line-height: 1.2;
 }
 
-.card-text p {
-    font-size: 14px;
-    color: #f35525;
-    margin-top: 2px;
-    font-weight: 500;
+.fact-box p span {
+    color: #666;
+    font-size: 13px;
+    font-weight: 400;
 }
 
-/* Chota circular dot background decoration */
-.fact-card .dot-badge {
+.fact-box .dot {
     position: absolute;
-    top: -12px;
-    right: -12px;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
     background-color: #f35525;
-    width: 28px;
-    height: 28px;
     border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    border: 3px solid #fff;
 }
 
-/* Hover Effect: Jab mouse upar aaye toh card pop-up ho */
-.fact-card:hover {
-    background-color: #f35525;
-    transform: translateY(-10px); /* Card thoda upar uthega */
-    box-shadow: 0px 15px 30px rgba(243, 85, 37, 0.2);
-}
-
-.fact-card:hover .card-number,
-.fact-card:hover .card-text h4,
-.fact-card:hover .card-text p {
-    color: #fff; /* Hover karne par text khud white ho jayega */
-}
-
-/* --- Properties Section --- */
+/* --- 8. Properties Section (Horizontal Set Slider) --- */
 .properties-section {
-    padding: 80px 10%;
+    padding: 80px 5%;
     background-color: #f9f9f9;
+    overflow: hidden;
 }
 
 .properties-heading {
@@ -434,58 +415,55 @@
 }
 
 .properties-heading h3 {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: 800;
     color: #1e1e1e;
     margin-top: 15px;
 }
 
-/* 3 Cards Standard Grid Layout */
-.properties-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Teeno box amne samne pory ayenge */
-    gap: 30px;
+.properties-slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
+.properties-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 200%; /* Support for 2 complete sets */
+}
+
+.properties-slide-set {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+/* Individual Card Styling */
 .property-card {
     background-color: #fff;
-    padding: 25px;
+    padding: 20px;
     border-radius: 20px;
-    box-shadow: 0px 5px 25px rgba(0,0,0,0.05);
+    box-shadow: 0px 5px 25px rgba(0,0,0,0.04);
     border: 1px solid #f0f0f0;
 }
 
-/* Image Container Frame */
-.card-image-window {
+.property-card img {
     width: 100%;
-    height: 220px;
-    position: relative; /* Andar wali images ko overlap karne ke liye */
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-/* Saari images default me chhupi rahengi */
-.card-image-window .slide-img {
-    width: 100%;
-    height: 100%;
+    height: 200px;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out; /* Smooth fade effect */
-}
-
-/* Jo image active hogi sirf wo nazar aayegi */
-.card-image-window .slide-img.active {
-    opacity: 1;
+    border-radius: 15px;
 }
 
 .card-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0 15px 0;
+    margin: 18px 0 12px 0;
 }
 
 .type-badge {
@@ -499,24 +477,24 @@
 
 .price-tag {
     color: #f35525;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 800;
 }
 
 .property-card h4 {
-    font-size: 16px;
+    font-size: 15px;
     color: #1e1e1e;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: 700;
 }
 
 .specs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
     font-size: 13px;
     color: #666;
 }
@@ -535,12 +513,39 @@
     cursor: pointer;
     display: block;
     margin: 0 auto;
-    transition: 0.3s;
     width: 100%;
+    transition: 0.3s;
 }
 
 .visit-btn:hover {
     background-color: #f35525;
+}
+
+/* --- 9. Footer --- */
+footer {
+    background-color: #1e1e1e;
+    color: #fff;
+    text-align: center;
+    padding: 35px 0;
+    font-size: 14px;
+}
+
+/* Mobile Media Queries */
+@media (max-width: 768px) {
+    .video-container {
+        width: 90%;
+        height: 250px;
+        bottom: -100px;
+    }
+    .facts-section {
+        padding-top: 150px;
+    }
+    .facts-container {
+        grid-template-columns: 1fr;
+    }
+    .properties-slide-set {
+        grid-template-columns: 1fr;
+    }
 }
 /* ==========================================================================
    📱 MOBILE VIEW RESPONSIVE JADU (For Screens less than 768px)

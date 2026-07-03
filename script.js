@@ -41,3 +41,16 @@ propertyCards.forEach((card) => {
         images[currentImgIndex].classList.add('active');
     }, 3000); // Har 3 seconds baad photo badlegi
 });
+// --- Horizontal Set Slider for Properties (Sliding from Right Side) ---
+const propTrack = document.getElementById('propertiesTrack');
+const totalSets = 2; 
+let currentSetIndex = 0;
+
+function slideMultiProperties() {
+    currentSetIndex = (currentSetIndex + 1) % totalSets;
+    const moveAmount = currentSetIndex * -100;
+    propTrack.style.transform = `translateX(${moveAmount}%)`;
+}
+
+// Every 5 seconds, the whole set of 3 cards slides smoothly
+setInterval(slideMultiProperties, 5000);
