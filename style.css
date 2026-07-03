@@ -752,3 +752,60 @@ html, body {
         width: 50% !important;
     }
 }
+/* ==========================================================================
+   🎯 VIDEO SECTION - PERFECT CENTER ALIGNMENT FOR MOBILE & DESKTOP
+   ========================================================================== */
+
+/* 1. Main Section jahan video wrapper maujood hai */
+.video-section, 
+.video-view-section {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important; /* Horizontal center core alignment */
+    align-items: center !important;
+    text-align: center !important;
+    padding: 60px 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 2. Video Container / Wrapper (Jo responsive iframe ya youtube video ko hold karta hai) */
+.video-container, 
+.video-box,
+.video-section .container {
+    width: 90% !important;
+    max-width: 800px !important; /* Desktop par size standard rahega */
+    margin: 0 auto !important;   /* Margin auto se element dono sides se perfect mid me aata hai */
+    display: block !important;
+    float: none !important;      /* Kisi bhi purane float effect ko khatam karne ke liye */
+    position: relative !important;
+    left: 0 !important;          /* Purani left/right shifts zero out */
+    right: 0 !important;
+    transform: none !important;  /* Purani dynamic repositioning override */
+}
+
+/* 3. Actual Video Element (iframe / video tag) */
+.video-container iframe, 
+.video-box iframe,
+.video-container video {
+    width: 100% !important;
+    height: 450px !important;    /* Desktop view standard height */
+    border-radius: 20px !important;
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 📱 Mobile Screens ke liye specific micro-adjustments */
+@media (max-width: 768px) {
+    .video-container, 
+    .video-box,
+    .video-section .container {
+        width: 92% !important;   /* Mobile screen ke mutabiq elegant edges width */
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    
+    .video-container iframe, 
+    .video-box iframe,
+    .video-container video {
+        height: 240px !important; /* Mobile devices par video height automatically auto-scale ho jaye */
+    }
+}
