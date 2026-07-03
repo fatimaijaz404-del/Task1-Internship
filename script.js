@@ -45,34 +45,42 @@ changeSlide(currentSlide);
 // ==========================================================================
 
 // --- Individual Cards Inner Image Slideshows ---
-const propertyCards = document.querySelectorAll('.property-card');
+// ==========================================================================
+// 🎯 HORIZONTAL PROPERTIES SLIDER (NO PAGE SHIFT FIX)
+// ==========================================================================
 
-propertyCards.forEach((card) => {
-    const images = card.querySelectorAll('.slide-img');
-    let currentImgIndex = 0;
-
-    // Har individual card ke liye alag timer chalega
-    setInterval(() => {
-        // Pehle active image se active class hatao
-        images[currentImgIndex].classList.remove('active');
-
-        // Agli image par jao
-        currentImgIndex = (currentImgIndex + 1) % images.length;
-
-        // Nayi image par active class laga do
-        images[currentImgIndex].classList.add('active');
-    }, 3000); // Har 3 seconds baad photo badlegi
-});
-// --- Horizontal Set Slider for Properties (Sliding from Right Side) ---
-const propTrack = document.getElementById('propertiesTrack');
+// Dono ID aur Class ko fallback ke sath select kiya taake code break na ho
+const propTrack = document.getElementById('propertiesTrack') || document.querySelector('.properties-track');
 const totalSets = 2; 
 let currentSetIndex = 0;
 
 function slideMultiProperties() {
+    if (!propTrack) return; // Guard clause agar HTML element na mile
+
     currentSetIndex = (currentSetIndex + 1) % totalSets;
-    const moveAmount = currentSetIndex * -100;
+    
+    /* 🟢 CRITICAL FIX: Kyunki aapki CSS me track width 200% hai aur har set 50% width ka hai,
+       isliye hume pure -100% nahi balki sirf -50% move karna hai taake second set samne aaye!
+    */
+    const moveAmount = currentSetIndex * -50; 
+    
     propTrack.style.transform = `translateX(${moveAmount}%)`;
 }
 
-// Every 5 seconds, the whole set of 3 cards slides smoothly
+// Har 5 seconds baad smoothly set badlega bina layout kharab kiye
 setInterval(slideMultiProperties, 5000);
+
+
+// --- Individual Cards Inner Image Slideshows (Wese hi rahega) ---
+const propertyCards = document.querySelectorAll('.property-card');
+propertyCards.forEach((card) => {
+    const images = card.querySelectorAll('.slide-img');
+    if (images.length === 0) return;
+    let currentImgIndex = 0;
+
+    setInterval(() => {
+        images[currentImgIndex].classList.remove('active');
+        currentImgIndex = (currentImgIndex + 1) % images.length;
+        images[currentImgIndex].classList.add('active');
+    }, 3000);
+});

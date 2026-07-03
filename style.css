@@ -494,14 +494,20 @@
 .properties-section {
     padding: 80px 5%;
     background-color: #f9f9f9;
-    overflow: hidden;
+    /* 🟢 Yeh line zaroori hai taake screen se bahar ka track page ko push na kare */
+    overflow-x: hidden !important; 
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.properties-heading {
-    text-align: center;
-    margin-bottom: 50px;
+.properties-slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* 🟢 Dono side par safe hidden boundary lagane ke liye */
+    overflow: hidden !important; 
+    width: 100%;
 }
-
 .properties-heading h3 {
     font-size: 34px;
     font-weight: 800;
