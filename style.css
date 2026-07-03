@@ -293,81 +293,79 @@
 }
 
 /* 2. Right side block ko left image ke barabar proper width dein */
-.featured-section .info-list, 
-.featured-section ul {
-    list-style: none;
-    padding: 0 !important;
-    margin: 0 !important;
+/* ==========================================================================
+   🎯 FEATURED RIGHT SIDE LIST FIXED WITH EXACT HTML CLASSES
+   ========================================================================== */
+
+/* 1. Main dynamic section container alignment */
+.featured-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. Right side main card widget wrapper box spacing */
+.featured-list-card {
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 20px !important;
+    padding: 35px 30px !important;
     width: 100%;
-    max-width: 380px; /* Proper full dynamic structural width */
+    max-width: 320px; /* Layout balanced wide frame */
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Har card block ke beech dynamic spatial gap */
-    background: #fff;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    padding: 30px !important; /* Outer container structural card padding */
+    gap: 0; /* Border separation control */
 }
 
-/* 3. Har individual row item ko bilkul amne-samne row me align karein */
-.featured-section .info-list li,
-.featured-section .icon-box {
+/* 3. Har single item block ko amne-samne row me direct align karein */
+.feature-item {
     display: flex !important;
-    flex-direction: row !important; /* Icons aur text humesha side-by-side rahen ge */
+    flex-direction: row !important; /* Force items to stay side-by-side */
     align-items: center !important;
-    gap: 20px !important;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    gap: 25px !important; /* Spacing between icon and headings text */
+    padding: 20px 0 !important;
+    border-bottom: 1px solid #eeeeee !important;
     width: 100%;
 }
 
-/* Aakhri element ke niche se line hatane k liye */
-.featured-section .info-list li:last-child,
-.featured-section .icon-box:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+/* Aakhri element ke niche se custom line border ko remove karein */
+.feature-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+.feature-item:first-child {
+    padding-top: 0 !important;
 }
 
-/* 4. Icons ka size aur exact brown balance */
-.featured-section .info-list img, 
-.featured-section .icon-box img,
-.featured-section li img {
-    width: 48px !important; /* Perfect standard structure size */
-    height: 48px !important;
-    min-width: 48px !important; /* Flexbox block shrink protection */
-    object-fit: contain;
-    /* Clean Solid Brown color filter adjustment */
-    filter: invert(28%) sepia(85%) saturate(385%) hue-rotate(359deg) brightness(88%) contrast(90%) !important;
+/* 4. FontAwesome Icon elements exact sizing & proper Brown shade */
+.feature-icon {
+    font-size: 32px !important;   /* Size according to left text layout balance */
+    color: #7A431D !important;    /* Absolute Elegant Brown Theme Color */
+    width: 45px !important;       /* Structural block spatial limit */
+    min-width: 45px !important;   /* Prevent shrinking container dynamics */
+    text-align: center !important;
+    display: inline-block !important;
 }
 
-/* Agar pure fontAwesome element tag template me hain (<i>) */
-.featured-section .info-list i, 
-.featured-section .icon-box i,
-.featured-section li i {
-    font-size: 36px !important;
-    min-width: 48px !important;
-    color: #7A431D !important;
-    text-align: center;
-}
-
-/* 5. Text details adjustment (Heading & Content placement side-by-side) */
-.featured-section .info-list h4,
-.featured-section .info-list li strong {
+/* 5. Headings and description adjustments inside the flex row block */
+.feature-item h4 {
     font-size: 19px !important;
     font-weight: 700 !important;
     color: #1e1e1e !important;
-    margin: 0 0 4px 0 !important;
-    display: block !important;
+    margin: 0 0 3px 0 !important;
+    line-height: 1.2 !important;
 }
 
-.featured-section .info-list span,
-.featured-section .info-list li p {
+.feature-item p {
     font-size: 14px !important;
-    color: #aaa !important;
+    color: #7a7a7a !important;
     margin: 0 !important;
-    display: block !important;
+    line-height: 1.2 !important;
 }
-
 /* --- Video Section Styling --- */
 /* --- 6. Video Section (Banner Height & Video Width Fixed) --- */
 .video-section {
