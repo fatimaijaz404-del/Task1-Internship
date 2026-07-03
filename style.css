@@ -404,58 +404,98 @@
 
 /* --- 7. Facts Section (Larger Orange Boxes) --- */
 /* ==========================================================================
-   🎯 COUNTER BOXES - BIGGER SIZE & EXACT BROWN THEME FIXED
+   🎯 COUNTER BOXES - PERFECT CENTER HORIZONTAL ALIGNMENT
    ========================================================================== */
 
-/* 1. Counter items ka size thoda bada (Little Big) karne ke liye */
+/* 1. Main sections wrap block isolation */
+.facts-section {
+    width: 100%;
+    padding: 60px 0 !important;
+    background-color: #ffffff;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    clear: both; /* Video section se overlap rokne ke liye */
+}
+
+/* 2. Pure items row container ko standard center alignment dena */
+.facts-container {
+    display: flex !important;
+    flex-direction: row !important;     /* Force elements to stay side-by-side */
+    justify-content: center !important;  /* Center horizontally */
+    align-items: center !important;      /* Center vertically */
+    gap: 40px !important;                /* Space between boxes */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    flex-wrap: nowrap !important;        /* Desktop par break hone se rokega */
+}
+
+/* 3. Individual boxes structural layout size and color styling */
 .fact-box {
-    background-color: #fbf7f4 !important; /* Soft premium cream background */
-    padding: 35px 45px !important;       /* Space barha di taaki boxes bade lagain */
+    background-color: #fbf7f4 !important; /* Premium clean cream shade */
+    padding: 30px 40px !important;       /* Balanced large custom size */
     border-radius: 20px !important;
     display: flex !important;
+    flex-direction: row !important;
     align-items: center !important;
     gap: 20px !important;
     position: relative !important;
-    box-shadow: 0px 10px 25px rgba(122, 67, 29, 0.04) !important;
+    box-shadow: 0px 10px 30px rgba(122, 67, 29, 0.05) !important;
+    flex: 1 !important;                  /* Har box barabar space lega */
+    max-width: 300px !important;
 }
 
-/* 2. Numbers (34, 12, 24) ka size bada aur rang SOLID BROWN */
+/* 4. Large Bold Numbers inside the card */
 .fact-box h2 {
     color: #7A431D !important;    /* Royal Matte Brown Color */
-    font-size: 48px !important;    /* Size thoda aur prominent kar diya */
+    font-size: 46px !important;
     font-weight: 800 !important;
     margin: 0 !important;
     line-height: 1 !important;
 }
 
-/* 3. Text (Buildings, Years, Awards) ko brown shade dena */
+/* 5. Main Title font adjustment */
 .fact-box p {
-    color: #5c3519 !important;    /* Deep dark brown font */
+    color: #5c3519 !important;    /* Dark Brown Title */
     font-size: 16px !important;
     font-weight: 700 !important;
     line-height: 1.3 !important;
     margin: 0 !important;
 }
 
-/* Niche wale chote light text ka rang */
+/* Sub-info tiny text alignment */
 .fact-box p span {
-    color: #9c8270 !important;    /* Muted elegant brown contrast */
+    color: #9c8270 !important;    /* Soft Muted contrast */
     font-size: 13px !important;
     font-weight: 400 !important;
     display: block !important;
     margin-top: 2px !important;
 }
 
-/* 4. Top-Right corner wale chote dot element ko BROWN karna */
+/* 6. Top-Right floating corner custom dot */
 .fact-box .dot {
     position: absolute !important;
     top: -8px !important;
     right: -8px !important;
     width: 16px !important;
     height: 16px !important;
-    background-color: #7A431D !important; /* Perfect Brown Dot */
+    background-color: #7A431D !important;
     border: 3px solid #ffffff !important;
     border-radius: 50% !important;
+}
+
+/* Responsive check for smaller displays (Mobile structure compatibility) */
+@media (max-width: 768px) {
+    .facts-container {
+        flex-direction: column !important; /* Mobile par automatic ek ke niche ek ayenge */
+        gap: 25px !important;
+    }
+    .fact-box {
+        width: 100% !important;
+        max-width: 320px !important;
+    }
 }
 
 /* --- 8. Properties Section (Horizontal Set Slider) --- */
