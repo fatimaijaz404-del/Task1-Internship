@@ -757,42 +757,50 @@ html, body {
    ========================================================================== */
 
 /* ==========================================================================
-   🎯 FINAL OVERRIDE: FORCE VIDEO TO CENTER ON MOBILE (768px)
+   📱 ONLY MOBILE VIEW (max-width: 768px) - VERTICAL CENTERING JADU
    ========================================================================== */
+
 @media (max-width: 768px) {
-    /* 1. Main outer parent section layout alignment */
-    .video-section, 
+    
+    /* 1. Main Video Section: Text and Video spacing control */
     .video-view-section {
-        width: 100% !important;
         display: flex !important;
-        justify-content: center !important; /* Horizontally clear center center lock */
+        flex-direction: column !important;
+        justify-content: flex-start !important; /* Stack text first */
         align-items: center !important;
-        margin: 0 auto !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        position: relative !important;
+        /* Video ko vertically safe background area me lane ke liye bottom barhaya */
+        padding: 50px 0 250px 0 !important; 
+        min-height: auto !important;
+        width: 100% !important;
     }
 
-    /* 2. Video container block positioning override */
-    .video-container, 
-    .video-box,
-    .video-section .container {
-        position: relative !important;
-        width: 90% !important;        /* Screen edges balanced padding spacing */
-        max-width: 480px !important;  /* Fluid layout boundary safe container limit */
-        margin: 20px auto !important; /* Left & Right auto forces perfect alignment */
-        left: 0 !important;           /* Purani left/right settings reset */
-        right: 0 !important;
-        bottom: 0 !important;         /* Kisi bhi negative bottom offset pull ko zero kiya */
-        transform: none !important;
+    /* 2. Headline Text spacing fix: Keep it close to top edge */
+    .video-view-section .section-headline-block {
+        text-align: center !important;
+        margin: 0 auto 30px auto !important; /* Spacing between Text & coming video */
         float: none !important;
     }
 
-    /* 3. Actual Iframe element visual size control */
-    .video-container iframe, 
-    .video-box iframe {
-        width: 100% !important;
-        height: 250px !important;     /* Mobile clean standard video playback frame height */
+    /* 3. The Video Frame Wrapper: Lock to exact Vertical Center spot in background */
+    .video-container {
+        position: absolute !important;
+        bottom: 20% !important;   /* Dynamic vertical offset based on green box */
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* Horizontal locked center */
+        width: 85% !important;
+        max-width: 380px !important;
+        height: auto !important;
         display: block !important;
-        margin: 0 auto !important;
+        z-index: 10 !important;
+        border-radius: 15px;
+    }
+
+    /* Video element exact shape control */
+    .video-container iframe {
+        width: 100% !important;
+        height: 240px !important; /* Mobile clean playing height frame */
+        border-radius: 15px !important;
+        margin: 0 !important;
     }
 }
