@@ -697,64 +697,58 @@ footer {
    📱 PERFECT MOBILE VIEW ACCORDING TO SCREENSHOT OVERLAYS
    ========================================================================== */
 
-@media (max-width: 768px) {
-    
-    /* 1. Featured Section Layout Adjustment */
+/* ==========================================================================
+   🎯 ULTRA-SAFE CLEAN LAYOUT ADJUSTMENT (NO LAYOUT BREAKING)
+   ========================================================================== */
+
+/* Page ke right side par responsive screen flow block karne ke liye */
+html, body {
+    width: 100%;
+    overflow-x: hidden !important;
+}
+
+/* 1. Featured Section - Items shrink protection */
+@media (max-width: 991px) {
     .featured-container {
+        display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        gap: 20px !important;
-        padding: 0 15px !important;
-    }
-    .featured-image, .featured-info {
-        width: 100% !important;
-        max-width: 100% !important;
+        gap: 40px !important;
     }
     .featured-list-card {
+        max-width: 100% !important;
         width: 100% !important;
-        max-width: 100% !important; /* Mobile par width full ho taaki content kray na */
-        box-sizing: border-box !important;
-        padding: 20px !important;
+        margin: 0 auto !important;
     }
-    .feature-item {
-        gap: 15px !important;
-    }
+}
 
-    /* 2. Facts Counter Section Overlap Fix (Video block overlap control) */
-    .facts-section {
-        margin-top: 0px !important; /* Negative effects zero out */
-        padding: 60px 0 !important; /* Normal fluid distribution */
-        display: block !important;
-        width: 100% !important;
-    }
+/* 2. Facts Counter Overlap Fix */
+.facts-section {
+    position: relative !important;
+    z-index: 99 !important;
+    clear: both !important;
+}
+
+@media (max-width: 768px) {
     .facts-container {
-        flex-direction: column !important; /* Stack vertically single-row on mobile */
-        gap: 30px !important; 
-        padding: 0 20px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        align-items: center !important;
     }
     .fact-box {
-        width: 100% !important;
-        max-width: 100% !important; /* Full visible card container width */
+        width: 90% !important;
+        max-width: 320px !important;
         margin: 0 auto !important;
-        padding: 25px 30px !important;
-        box-sizing: border-box !important;
     }
+}
 
-    /* 3. Properties Cards Grid Management for Mobile */
-    .properties-section {
-        padding: 50px 15px !important;
+/* 3. Properties Carousel Slider Break Fix */
+@media (max-width: 768px) {
+    .properties-track {
+        width: 200% !important; /* CSS track grid percentage preserved */
     }
     .properties-slide-set {
-        width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important; /* Grid breaks to clean column roll */
-        gap: 30px !important;
-    }
-    .property-card {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
+        grid-template-columns: 1fr !important; /* Cards properly stack inside their slide set */
+        width: 50% !important;
     }
 }
